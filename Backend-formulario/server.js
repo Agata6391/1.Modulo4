@@ -14,11 +14,12 @@ app.use (cors());
 //conexion con mongoDB
 mongoose.connect('mongodb://localhost:27017/Nutricion_clinic',{
     useNewUrlparser:true,
-    useUnifieldTopology:true,
+    useUnifiedTopology:true,
 
 }).then(()=>console.log('MongoDb Connected')).catch(err=>console.log(err));
 //la ruta oor donde lo va ha hacer
 const registrationRoutes= require('./routes/registration')
 app.use('/api/registration',registrationRoutes);
 const PORT =process.env.PORT || 5000;
-app.listen(PORT,()=>console.log(`Server Running on port ${PORT}`));
+app.listen(PORT,()=>console.log(`Server Running on port ${PORT}`
+));
