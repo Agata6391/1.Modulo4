@@ -1,6 +1,6 @@
 document.getElementById('registroForm').addEventListener('submit', function(event) {
     event.preventDefault();
-
+//Constantes
     let valid = true;
 
     const nombre = document.getElementById('nombre').value.trim();
@@ -8,13 +8,13 @@ document.getElementById('registroForm').addEventListener('submit', function(even
     const password = document.getElementById('password').value.trim();
     const confirmPassword = document.getElementById('confirmPassword').value.trim();
 
-    //Mensajes de error
+    //Mensajes de error aqui 
     document.getElementById('error-nombre').innerText = '';
     document.getElementById('error-email').innerText = '';
     document.getElementById('error-password').innerText = '';
     document.getElementById('error-confirmPassword').innerText = '';
 
-    // ComoValidar
+    // ComoValidar aqui y disparar error aqui 
     if (!nombre) {
         document.getElementById('error-nombre').innerText = 'Requerido';
         valid = false;
