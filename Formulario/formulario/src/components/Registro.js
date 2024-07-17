@@ -1,8 +1,14 @@
 import React from "react";
 import { Formik, Form, Field, ErrorMessage } from 'formik';
 import * as Yup from 'yup';
+import axios from "axios";
 import './Registro.css';
-
+const validationSchema = Yup.object({
+    nombre: Yup.string().required('Requerido'),
+    email: Yup.string().email('Email invalido').required('Requerido'),
+    password: Yup.string().min(6,'Debe tener al menos 6 caracteres').required('Requerido'),
+    confirmPassword: Yup.string().oneOf([Yup.ref('password'), null],'Las contraseñas deben de coincidir').required('Requerido'),
+});
 const Registro = ()=>{
     const initialValues = {
         nombre: '',
@@ -11,16 +17,19 @@ const Registro = ()=>{
         confirmPassword: '',
     };
 
-    const validationSchema = Yup.object({
-        nombre: Yup.string().required('Requerido'),
-        email: Yup.string().email('Email invalido').required('Requerido'),
-        password: Yup.string().min(6,'Debe tener al menos 6 caracteres').required('Requerido'),
-        confirmPassword: Yup.string().oneOf([Yup.ref('password'), null],'Las contraseñas deben de coincidir').required('Requerido'),
-    });
-
-    const onSubmit = (values)=>{
-        console.log('Formulario enviado');
-        console.log(values);
+    const onSubmit = (values, {setSubmitting,resetForm})=>{
+        axios.post('http://localhost:5000/api/registration', values)
+        .then(response =>{console.log(response.data);
+            resetForm();
+        })
+        .catch(error =>{
+            console.log(error);
+        })
+        .finally(()=>{
+            setSubmitting(false);
+        });
+        // console.log('Formulario enviado');
+        // console.log(values);
     };
 
     return (
@@ -31,29 +40,31 @@ const Registro = ()=>{
               validationSchema={validationSchema}
               onSubmit={onSubmit}
             >
+               {({isSubmitting})=>
                 <Form>
-                    <div className="form-control">
-                        <label htmlFor="nombre">Nombre</label>
-                        <Field type="text" id="nombre" name="nombre"/>  
-                        <ErrorMessage name="nombre" component="div" className="error" />  
-                    </div>                   
-                    <div className="form-control">
-                        <label htmlFor="email">Correo</label>
-                        <Field type="email" id="email" name="email"/>  
-                        <ErrorMessage name="email" component="div" className="error" />  
-                    </div>                   
-                    <div className="form-control">
-                        <label htmlFor="password">Clave</label>
-                        <Field type="password" id="password" name="password"/>  
-                        <ErrorMessage name="password" component="div" className="error" />  
-                    </div>                   
-                    <div className="form-control">
-                        <label htmlFor="confirmPassword">Clave</label>
-                        <Field type="password" id="confirmPassword" name="confirmPassword"/>  
-                        <ErrorMessage name="confirmPassword" component="div" className="error" />  
-                    </div>
-                    <button type="submit">Registrar</button>                   
-                </Form>
+               <div className="form-control">
+                   <label htmlFor="nombre">Nombre</label>
+                   <Field type="text" id="nombre" name="nombre"/>  
+                   <ErrorMessage name="nombre" component="div" className="error" />  
+               </div>                   
+               <div className="form-control">
+                   <label htmlFor="email">Correo</label>
+                   <Field type="email" id="email" name="email"/>  
+                   <ErrorMessage name="email" component="div" className="error" />  
+               </div>                   
+               <div className="form-control">
+                   <label htmlFor="password">Clave</label>
+                   <Field type="password" id="password" name="password"/>  
+                   <ErrorMessage name="password" component="div" className="error" />  
+               </div>                   
+               <div className="form-control">
+                   <label htmlFor="confirmPassword">Clave</label>
+                   <Field type="password" id="confirmPassword" name="confirmPassword"/>  
+                   <ErrorMessage name="confirmPassword" component="div" className="error" />  
+               </div>
+               <button type="submit" disabled={isSubmitting}>Registrar</button>                   
+           </Form>
+               }
             </Formik>
         </div>
     );
