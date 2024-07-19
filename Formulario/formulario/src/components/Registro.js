@@ -3,15 +3,16 @@ import { Formik, Form, Field, ErrorMessage } from 'formik';
 import * as Yup from 'yup';
 import axios from "axios";
 import './Registro.css';
+//esquema de validacion yup
 const validationSchema = Yup.object({
-    nombre: Yup.string().required('Requerido'),
+    name: Yup.string().required('Requerido'),
     email: Yup.string().email('Email invalido').required('Requerido'),
     password: Yup.string().min(6,'Debe tener al menos 6 caracteres').required('Requerido'),
     confirmPassword: Yup.string().oneOf([Yup.ref('password'), null],'Las contraseñas deben de coincidir').required('Requerido'),
 });
 const Registro = ()=>{
     const initialValues = {
-        nombre: '',
+        name: '',
         email: '',
         password: '',
         confirmPassword: '',
@@ -58,7 +59,7 @@ const Registro = ()=>{
                    <ErrorMessage name="password" component="div" className="error" />  
                </div>                   
                <div className="form-control">
-                   <label htmlFor="confirmPassword">Clave</label>
+                   <label htmlFor="confirmPassword">Confirmar Clave</label>
                    <Field type="password" id="confirmPassword" name="confirmPassword"/>  
                    <ErrorMessage name="confirmPassword" component="div" className="error" />  
                </div>

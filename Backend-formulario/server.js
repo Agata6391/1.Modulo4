@@ -17,7 +17,7 @@ mongoose.connect('mongodb://localhost:27017/Nutricion_clinic',{
     useUnifiedTopology:true,
 
 }).then(()=>console.log('MongoDb Connected')).catch(err=>console.log(err));
-//la ruta oor donde lo va ha hacer
+//la ruta por donde lo va ha hacer
 const registrationRoutes= require('./routes/registration')
 app.use('/api/registration',registrationRoutes);
 const PORT =process.env.PORT || 5000;
