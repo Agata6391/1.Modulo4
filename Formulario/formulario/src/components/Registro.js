@@ -12,7 +12,7 @@ const validationSchema = Yup.object({
 });
 const Registro = ()=>{
     const initialValues = {
-        name: '',
+        nombre: '',
         email: '',
         password: '',
         confirmPassword: '',
