@@ -6,6 +6,7 @@ const Registration = require("../models/Registration");
 //crear un registro
 
 router.post("/", async (req, res) => {
+  console.log("DAtos recibidos",req.body);
   const { name, email, password } = req.body;
   try {
     const newRegistration = new Registration({ name, email, password });

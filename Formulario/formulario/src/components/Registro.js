@@ -8,14 +8,14 @@ const validationSchema = Yup.object({
     name: Yup.string().required('Requerido'),
     email: Yup.string().email('Email invalido').required('Requerido'),
     password: Yup.string().min(6,'Debe tener al menos 6 caracteres').required('Requerido'),
-    confirmPassword: Yup.string().oneOf([Yup.ref('password'), null],'Las contraseñas deben de coincidir').required('Requerido'),
+    
 });
 const Registro = ()=>{
     const initialValues = {
-        nombre: '',
+        name: '',
         email: '',
         password: '',
-        confirmPassword: '',
+        
     };
 
     const onSubmit = (values, {setSubmitting,resetForm})=>{
@@ -44,9 +44,9 @@ const Registro = ()=>{
                {({isSubmitting})=>
                 <Form>
                <div className="form-control">
-                   <label htmlFor="nombre">Nombre</label>
-                   <Field type="text" id="nombre" name="nombre"/>  
-                   <ErrorMessage name="nombre" component="div" className="error" />  
+                   <label htmlFor="name">Nombre</label>
+                   <Field type="text" id="name" name="name"/>  
+                   <ErrorMessage name="name" component="div" className="error" />  
                </div>                   
                <div className="form-control">
                    <label htmlFor="email">Correo</label>
@@ -58,11 +58,7 @@ const Registro = ()=>{
                    <Field type="password" id="password" name="password"/>  
                    <ErrorMessage name="password" component="div" className="error" />  
                </div>                   
-               <div className="form-control">
-                   <label htmlFor="confirmPassword">Confirmar Clave</label>
-                   <Field type="password" id="confirmPassword" name="confirmPassword"/>  
-                   <ErrorMessage name="confirmPassword" component="div" className="error" />  
-               </div>
+               
                <button type="submit" disabled={isSubmitting}>Registrar</button>                   
            </Form>
                }
