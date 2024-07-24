@@ -17,7 +17,7 @@ const Services =()=>{
                 </Typography>
                 <Grid container spacing={3}>
                     {services.map((services, index)=>
-                    <Grid item xs={12} md={4} key={index}>
+                    <Grid item xs={12} md={6} key={index}>
                         <Paper elevation={3} style={{padding:'20px'}}>
                             <Typography variant="h6">{services.title}</Typography>
                             <Typography variant="body1">{services.description}</Typography>
