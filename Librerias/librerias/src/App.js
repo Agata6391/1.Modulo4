@@ -3,6 +3,7 @@ import Header from "./components/Header";
 import AboutUs from "./components/AboutUs";
 import Services from "./components/Services";
 import Testimonials from "./components/Testimonial";
+import Portafolio from "./components/Portafolio";
 import { CssBaseline, Container } from "@mui/material";
 
 const App = () => {
@@ -14,6 +15,8 @@ const App = () => {
         <AboutUs />
         <Services/>
         <Testimonials/>
+        <Portafolio/>
+
       </Container>
     </div>
   );
