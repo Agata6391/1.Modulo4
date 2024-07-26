@@ -2,7 +2,7 @@ import React from "react";
 import { Container, Typography, Box, Paper, Grid } from "@mui/material";
 
 const proyects = [
-{title:"Proyecto1", image:"https://static.wikia.nocookie.net/mtgsalvation_gamepedia/images/d/de/EldraziConcept4.jpg/revision/latest/scale-to-width-down/1000?cb=20230706064209.png"},
+{title:"Proyecto1", image:"https://static.wikia.nocookie.net/mtgsalvation_gamepedia/images/d/de/EldraziConcept4.jpg/revision/latest/scale-to-width-down/1000?cb=20230706064209"},
 {title:"Proyecto2", image:"https://static.wikia.nocookie.net/mtgsalvation_gamepedia/images/0/01/EldraziConcept.jpg/revision/latest/scale-to-width-down/1000?cb=20230706020829"},
 ];
 
@@ -14,11 +14,11 @@ const Portafolio=()=>{
                 Proyectos
             </Typography>
             <Grid container spacing={3}>
-                {proyects.map((proyects, index)=>(
+                {proyects.map((proyect, index)=>(
                     <Grid item xs={12} md={6} key={index}>
                         <Paper elevation={3}
                          style={{
-                            backgroundImage:'url($(proyect.image))',
+                            backgroundImage:`url(${proyect.image})`,
                             backgroundSize:"cover",
                             height:'200px',
                             display:'flex',
