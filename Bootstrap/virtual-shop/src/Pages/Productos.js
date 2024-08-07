@@ -3,22 +3,22 @@ import { fetchProducts } from "../Services/api";
 
 const Productos = () => {
   const [productos, setProductos] = useState([]);
-  const [searchTerm, setSeatchTerm] = useState("");
+  const [searchTerm, setSearchTerm] = useState("");
   useEffect(() => {
-    fetchProducts().then((response) => setProductos(response.data));
+    fetchProducts().then(response => setProductos(response.data));
   }, []);
-  const filteredProducts = productos.filter((product) =>
-    product.name.toLowerCase().includes(searchTerm.toLowerCase())
+  const filteredProducts = productos.filter(product =>
+    product.title.toLowerCase().includes(searchTerm.toLowerCase())
   );
   return (
     <div>
       <input
         type="text"
         placeholder="Buscar Producto..."
-        onChange={(e) => setSeatchTerm(e.target.value)}
+        onChange={(e) => setSearchTerm(e.target.value)}
       />
       <div>
-        {filteredProducts.map((product) => (
+        {filteredProducts.map(product => (
           <div key={product.id}>
             <h2>{product.title}</h2>
             <p>{product.price}</p>
