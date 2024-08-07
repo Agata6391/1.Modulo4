@@ -6,7 +6,7 @@ export const CartProvide=({children})=>{
     const addToCart=(product)=>{
         setCart([...cart,product])  
     }
-    const removeFromCart (productId)=>{
+    const removeFromCart=(productId)=>{
         set(cart.filter(item=>item.id !==productId))
     };
     const updateQuantity=(productId,quantity)=>{
