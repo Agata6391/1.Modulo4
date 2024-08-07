@@ -20,9 +20,9 @@ const Productos = () => {
       <div>
         {filteredProducts.map(product => (
           <div key={product.id}>
-            <h2>{product.title}</h2>
-            <p>{product.price}</p>
-            <img src={product.image} alt="aqui deberia estar una imagen" />
+            <h5>{product.title}</h5>
+            <p>${product.price}</p>
+            <img src={product.image} alt="aqui deberia estar una imagen" width="120px"/>
           </div>
         ))}
       </div>
