@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { fetchProducts } from "../Services/api";
+import ProductCard from "../components/ProductCard";
 
 const Productos = () => {
   const [productos, setProductos] = useState([]);
@@ -17,13 +18,14 @@ const Productos = () => {
         placeholder="Buscar Producto..."
         onChange={(e) => setSearchTerm(e.target.value)}
       />
-      <div>
+      <div style={{ display: 'flex', flexWrap: 'wrap', gap: '1rem' }}>
         {filteredProducts.map(product => (
-          <div key={product.id}>
-            <h5>{product.title}</h5>
-            <p>${product.price}</p>
-            <img src={product.image} alt="aqui deberia estar una imagen" width="120px"/>
-          </div>
+          <ProductCard key={product.id} product={product} />
+          // <div key={product.id}>
+          //   <h5>{product.title}</h5>
+          //   <p>${product.price}</p>
+          //   <img src={product.image} alt="aqui deberia estar una imagen" width="120px"/>
+          // </div>
         ))}
       </div>
     </div>

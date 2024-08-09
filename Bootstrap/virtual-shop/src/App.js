@@ -16,6 +16,7 @@ const App =()=>(
         <Route path="/" element={<Inicio/>}/>
         <Route path="/productos" element={<Productos/>}/>
         <Route path="/carrito" element={<Carrito/>}/>
+       
       </Routes>
       <Footer/>
     
