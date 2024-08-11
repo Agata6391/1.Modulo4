@@ -37,15 +37,15 @@ router.get("/:id", async (req, res) => {
 });
 //Actualizar un registro
 
-router.put("./:id", async (req, res) => {
+router.put("/:id", async (req, res) => {
   const { name, email, password } = req.body;
   try {
-    const updateRegistration = await Registration.findByIdAndUpdate(
+    const updatedRegistration = await Registration.findByIdAndUpdate(
       req.params.id,
       { name, email, password },
       { new: true }
     );
-    if (!updateRegistration)
+    if (!updatedRegistration)
       return res.status(404).json({ message: "Not Found" });
     res.json(updateRegistration);
   } catch (err) {
