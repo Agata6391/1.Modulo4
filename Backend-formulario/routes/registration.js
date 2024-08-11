@@ -47,6 +47,7 @@ router.put("./:id", async (req, res) => {
     );
     if (!updateRegistration)
       return res.status(404).json({ message: "Not Found" });
+    res.json(updateRegistration);
   } catch (err) {
     res.status(400).json({message:err.message});
   }
