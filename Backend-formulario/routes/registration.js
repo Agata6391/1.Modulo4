@@ -6,13 +6,13 @@ const Registration = require("../models/Registration");
 //crear un registro
 
 router.post("/", async (req, res) => {
-  console.log("DAtos recibidos",req.body);
+  console.log("Datos recibidos",req.body);
   const { name, email, password } = req.body;
   try {
     const newRegistration = new Registration({ name, email, password });
     await newRegistration.save();
     res.status(201).json(newRegistration);
-  } catch {
+  } catch (err){
     res.status(400).json({ message: err.message });
   }
 });
@@ -21,12 +21,12 @@ router.get("/", async (req, res) => {
   try {
     const registrations = await Registration.find();
     res.json(registrations);
-  } catch {
+  } catch (err){
     res.status(500).json({ message: err.message });
   }
 });
 // Obtener un registro por ID
-router.get("/:id", async (res, req) => {
+router.get("/:id", async (req, res) => {
   try {
     const registration = await Registration.findById(req.params.id);
     if (!registration) return res.status(404).json({ message: "Not Found" });
@@ -37,7 +37,7 @@ router.get("/:id", async (res, req) => {
 });
 //Actualizar un registro
 
-router.put("./:id", async (res, req) => {
+router.put("./:id", async (req, res) => {
   const { name, email, password } = req.body;
   try {
     const updateRegistration = await Registration.findByIdAndUpdate(
@@ -53,12 +53,12 @@ router.put("./:id", async (res, req) => {
 });
 
 //Eliminar un registro por ID
-router.delete('/:id', async (res,req)=>{
+router.delete('/:id', async (req,res)=>{
     try{
         const deleteRegistration = await Registration.findByIdAndDelete(req.params.id);
         if(!deleteRegistration) return res.status(404).json({message:'Not found'});
         res.json({message:'Deleted Succesful'});
-        }catch{
+        }catch (err){
             res.status(500).json({message:err.message});
         }
 
