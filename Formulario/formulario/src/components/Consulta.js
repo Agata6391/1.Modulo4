@@ -67,7 +67,7 @@ const Consulta = () => {
     }
 
     return (
-        <div className="consulta-container">
+        <div className="registro-container">
             <h2>Lista de Pacientes</h2>
             <table>
                 <thead>

@@ -1,11 +1,12 @@
 import React from "react";
 import Registro from "./components/Registro";
-import Consulta from "./components/Consulta";
+import PatientManage from "./components/PatientManage";
+
 const App = () => {
   return (
     <div className="App">
       <Registro />
-      <Consulta />
+      <PatientManage />
 
     </div>
   );

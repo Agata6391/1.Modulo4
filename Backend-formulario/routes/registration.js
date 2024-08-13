@@ -50,6 +50,7 @@ router.put("/:id", async (req, res) => {
     res.json(updateRegistration);
   } catch (err) {
     res.status(400).json({message:err.message});
+    console.error("Error during update:", err.message);
   }
 });
 
