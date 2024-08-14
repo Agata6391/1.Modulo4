@@ -22,6 +22,7 @@ const Registro = ()=>{
         axios.post('http://localhost:5000/api/registration', values)
         .then(response =>{console.log(response.data);
             resetForm();
+            window.location.reload();  
         })
         .catch(error =>{
             console.log(error);
@@ -40,6 +41,7 @@ const Registro = ()=>{
               initialValues={initialValues}
               validationSchema={validationSchema}
               onSubmit={onSubmit}
+              
             >
                {({isSubmitting})=>
                 <Form>
@@ -59,7 +61,8 @@ const Registro = ()=>{
                    <ErrorMessage name="password" component="div" className="error" />  
                </div>                   
                
-               <button type="submit" disabled={isSubmitting}>Registrar</button>                   
+               <button type="submit" disabled={isSubmitting}>Registrar</button> 
+                               
            </Form>
                }
             </Formik>
