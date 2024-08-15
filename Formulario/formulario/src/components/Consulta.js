@@ -41,7 +41,7 @@ const Consulta = () => {
     };
 
     const handleSave = () => {
-        if (editId) {
+        if (editId ,(window.confirm("¿Estás seguro de que quieres Editar este registro?"))) {
             axios.put(`http://localhost:5000/api/registration/${editId}`, formData)
                 .then(() => {
                     setPacientes(pacientes.map(paciente => 
@@ -53,6 +53,9 @@ const Consulta = () => {
                 .catch(error => {
                     console.error("Error al actualizar el registro:", error);
                     setError('Error al actualizar el registro');
+                    (window.confirm("Correo Duplicado Intente Nuevamente"))
+                    window.location.reload();
+                    
                 });
         }
     };

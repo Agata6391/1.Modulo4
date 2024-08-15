@@ -21,14 +21,19 @@ const Registro = ()=>{
     const onSubmit = (values, {setSubmitting,resetForm})=>{
         axios.post('http://localhost:5000/api/registration', values)
         .then(response =>{console.log(response.data);
+            (window.confirm("registro confirmado"))
             resetForm();
             window.location.reload();  
         })
         .catch(error =>{
+            (window.confirm("Correo Duplicado Intente Nuevamente"))
+                    
             console.log(error);
         })
         .finally(()=>{
             setSubmitting(false);
+           
+            window.location.reload();
         });
         // console.log('Formulario enviado');
         // console.log(values);
