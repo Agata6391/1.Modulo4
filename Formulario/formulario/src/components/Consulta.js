@@ -71,8 +71,14 @@ const Consulta = () => {
     };
 
     return (
-        <div className="consulta-container">
+        <div>
             <h2>Lista de Pacientes</h2>
+
+        
+        
+        <div className="consulta-container">
+           
+            
             <table>
                 <thead>
                     <tr>
@@ -98,8 +104,10 @@ const Consulta = () => {
             </table>
 
             {editId && (
-                <div>
+                <div className="edit-container">
                     <h3>Editar Paciente</h3>
+                    <div className="form-control">
+                    <label htmlFor="name">Nombre</label>
                     <input 
                         type="text"
                         name="name"
@@ -107,6 +115,9 @@ const Consulta = () => {
                         onChange={(e) => setFormData({ ...formData, name: e.target.value })}
                         placeholder="Nombre"
                     />
+                    </div>
+                    <div className="form-control">
+                    <label htmlFor="mail">Mail</label>
                     <input 
                         type="email"
                         name="email"
@@ -114,6 +125,9 @@ const Consulta = () => {
                         onChange={(e) => setFormData({ ...formData, email: e.target.value })}
                         placeholder="Email"
                     />
+                    </div>
+                    <div className="form-control">
+                    <label htmlFor="password">Clave</label>
                     <input 
                         type="password"
                         name="password"
@@ -121,9 +135,11 @@ const Consulta = () => {
                         onChange={(e) => setFormData({ ...formData, password: e.target.value })}
                         placeholder="Password"
                     />
+                    </div>
                     <Button onClick={handleSave} variant="success">Guardar Cambios</Button>
                 </div>
             )}
+        </div>
         </div>
     );
 };

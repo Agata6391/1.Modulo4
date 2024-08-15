@@ -1,11 +1,42 @@
 .registro-container{
+
     max-width: 400px;
     margin: 0 auto;
     padding: 20px;
     border: 1px solid #ccc;
-    border-radius: 10px;    
+    border-radius: 0 0 10px 10px;    
     box-shadow: 0 0 10px rgba(0,0,0,0.1);
     }
+.consulta-container{
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;  
+    flex-direction: column-reverse; 
+    max-width: 50%;
+    margin:0 auto;
+    gap:20px;
+}
+.edit-container{
+    max-height: 400px;
+    padding: 20px;
+    border: 1px solid #ccc;
+    border-radius: 10px;    
+    box-shadow: 0 0 10px rgba(0,0,0,0.1);
+}  
+Button{
+    margin: 4px;
+    width: 100%;
+    padding: 4px;
+    border: none;
+    border-radius: 5px;
+    background-color: aqua;
+    font-size: 16px;
+    cursor: pointer;
+    
+}
+td{
+    padding-bottom: 8px;
+}
 h2{
     text-align: center;
     color:aquamarine;
@@ -30,16 +61,8 @@ h2{
     margin-top: 5px;
 
 }
-button{
-    width: 100%;
-    padding: 10px;
-    border: none;
-    border-radius: 5px;
-    background-color: aqua;
-    font-size: 16px;
-    cursor: pointer;
 
-}
 .button:hover{
 background-color: aquamarine;
 }
+
